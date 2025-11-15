@@ -27,18 +27,14 @@ Yur1Ca@github:~$ ./welcome.sh
 ```
 Yur1Ca@github
 -------------------------
-🏫 Researcher @Unibo
-🔎 Main interests in attacking AI models and defending them ©️
-🔭 Still figuring out what to do in my life
-🌱 Learning about agentic AI
-🚀 Determined to learn RUST 🚀
-🏴‍☠️ Involved in CTF competitions and sysadmin tasks
-💖 In a complicated relationship with Suricata IDS
-🖌️ Love drawing portraits, hiking, stargazing, going to concerts
-🎵 Love metal, rock, electronics, funk and weird mixed genres
-⚡ Love ketchup (but not on pasta or pizza) 🍅
-💻 Total commits: 6060
-⭐ Total stars gained: 172
+💼 IDC industry practitioner exploring better ways to keep networks resilient
+🌐 Chronicler of my networking study workflow and the lessons learned
+🛠️ Coding comfort zone: shell, Python, SourcePawn; currently leveling up Go
+🔧 Automation scripts are my productivity hacks, and I love sharing reusable flows
+🔭 Stargazing is where I reset my mind and collect new ideas
+✈️ Travel and concerts keep my curiosity sharp
+🎹 Big fan of piano, ONE OK ROCK, and catchy pop tunes
+🎯 Pursuing a life that blends technical curiosity with graceful living
 ```
 
 </td>
@@ -46,11 +42,11 @@ Yur1Ca@github
 </table>
 
 ```console
-trykatchup@github:~$ sudo echo "* * * * * /usr/local/bin/catchbugs" >> /tmp/crontab$$
+Yur1Ca@github:~$ sudo echo "* * * * * /usr/local/bin/catchbugs" >> /tmp/crontab$$
 ```
 
 ```
-[sudo] Password for trykatchup:
+[sudo] Password for Yur1Ca:
 
 CATching bugs in code...
                               

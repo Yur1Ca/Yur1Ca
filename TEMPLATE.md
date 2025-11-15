@@ -1,5 +1,5 @@
 ```console
-trykatchup@github:~$ ./welcome.sh
+Yur1Ca@github:~$ ./welcome.sh
 ```
 
 ```
@@ -13,37 +13,40 @@ trykatchup@github:~$ ./welcome.sh
                 ||     ||
 ```
 
-<img align="left" src="https://github.com/TryKatChup/TryKatChup/blob/main/cropped.jpg" alt="Unfortunately I didn't find the author of the pic, feel to open a pull request if found" width="320" /> 
-
-```
-trykatchup@github
--------------------------
-🏫 MsC Computer engineering student @Unibo
-🔎 Main interests in AI & Cybersec
-🔭 Working on Deep Learning based cybersecurity solutions
-🌱 Learning about Computer Vision and Machine Learning stuff
-🌟 Main languages: Python, C/C++, Java 
-🏴‍☠️ Currently involved in CTF competitions and sysadmin tasks
-🚩 Interested in network security and web security
-💖 In a complicated relationship with Suricata IDS
-🖌️ Love drawing portraits and cute stuff, cycling, going to concerts
-🎵 Love metal, rock, jazz and blues
-⚡ Love ketchup (but not on pasta or pizza) 🍅
-💻 Total commits: {{ COMMITS }}
-⭐ Total stars gained: {{ STARS }}
-```
-
-<p align="left">
-  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-<img alt="#d49a96" src="https://raw.githubusercontent.com/TryKatChup/TryKatChup/main/img/d49a96.png" width="25" height="20" /><img alt="#914042" src="https://raw.githubusercontent.com/TryKatChup/TryKatChup/main/img/914042.png" width="25" height="20" /><img alt="#b37276" src="https://raw.githubusercontent.com/TryKatChup/TryKatChup/main/img/b37276.png" width="25" height="20" /><img alt="#e5b2b3" src="https://raw.githubusercontent.com/TryKatChup/TryKatChup/main/img/e5b2b3.png" width="25" height="20" /><img alt="#342a28" src="https://raw.githubusercontent.com/TryKatChup/TryKatChup/main/img/342a28.png" width="25" height="20" />
+<table border="0">
+<tr>
+<td width="35%" valign="middle" align="center">
+<img src="padoru.png" alt="Unfortunately I didn't find the author of the pic, feel to open a pull request if found" width="300" />
+<br>
+<p align="center">
+<img alt="#d49a96" src="https://raw.githubusercontent.com/Yur1Ca/Yur1Ca/main/img/d49a96.png" width="25" height="20" /><img alt="#914042" src="https://raw.githubusercontent.com/Yur1Ca/Yur1Ca/main/img/914042.png" width="25" height="20" /><img alt="#b37276" src="https://raw.githubusercontent.com/Yur1Ca/Yur1Ca/main/img/b37276.png" width="25" height="20" /><img alt="#e5b2b3" src="https://raw.githubusercontent.com/Yur1Ca/Yur1Ca/main/img/e5b2b3.png" width="25" height="20" /><img alt="#342a28" src="https://raw.githubusercontent.com/Yur1Ca/Yur1Ca/main/img/342a28.png" width="25" height="20" />
 </p>
+</td>
+<td width="65%" valign="middle">
+
+```
+Yur1Ca@github
+-------------------------
+💼 IDC industry practitioner exploring better ways to keep networks resilient
+🌐 Chronicler of my networking study workflow and the lessons learned
+🛠️ Coding comfort zone: shell, Python, SourcePawn; currently leveling up Go
+🔧 Automation scripts are my productivity hacks, and I love sharing reusable flows
+🔭 Stargazing is where I reset my mind and collect new ideas
+✈️ Travel and concerts keep my curiosity sharp
+🎹 Big fan of piano, ONE OK ROCK, and catchy pop tunes
+🎯 Pursuing a life that blends technical curiosity with graceful living
+```
+
+</td>
+</tr>
+</table>
 
 ```console
-trykatchup@github:~$ sudo echo "* * * * * /usr/local/bin/catchbugs" >> /tmp/crontab$$
+Yur1Ca@github:~$ sudo echo "* * * * * /usr/local/bin/catchbugs" >> /tmp/crontab$$
 ```
 
 ```
-[sudo] Password for trykatchup:
+[sudo] Password for Yur1Ca:
 
 CATching bugs in code...
                               
