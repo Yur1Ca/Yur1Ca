@@ -34,6 +34,8 @@ Yur1Ca@github
 ✈️ Travel and concerts keep my curiosity sharp
 🎹 Big fan of piano, ONE OK ROCK, and catchy pop tunes
 🎯 Pursuing a life that blends technical curiosity with graceful living
+💻 Total commits: {{ COMMITS }}
+⭐ Total stars gained: {{ STARS }}
 ```
 
 </td>
