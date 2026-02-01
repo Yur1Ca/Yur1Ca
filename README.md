@@ -19,8 +19,9 @@ Yur1Ca@github:~$ ./welcome.sh
 <img src="padoru.png" alt="Unfortunately I didn't find the author of the pic, feel to open a pull request if found" width="300" />
 <br>
 <p align="center">
-<img alt="#b7e1eb" src="https://raw.githubusercontent.com/TryKatChup/TryKatChup/main/img/b7e1eb.png" width="25" height="20" /><img alt="#697797" src="https://raw.githubusercontent.com/TryKatChup/TryKatChup/main/img/697797.png" width="25" height="20" /><img alt="#ebd0bc" src="https://raw.githubusercontent.com/TryKatChup/TryKatChup/main/img/ebd0bc.png" width="25" height="20" /><img alt="#3e3c47" src="https://raw.githubusercontent.com/TryKatChup/TryKatChup/main/img/3e3c47.png" width="25" height="20" /><img alt="#dfe6ec" src="https://raw.githubusercontent.com/TryKatChup/TryKatChup/main/img/dfe6ec.png" width="25" height="20" />
+<img alt="#d49a96" src="https://raw.githubusercontent.com/Yur1Ca/Yur1Ca/main/img/d49a96.png" width="25" height="20" /><img alt="#914042" src="https://raw.githubusercontent.com/Yur1Ca/Yur1Ca/main/img/914042.png" width="25" height="20" /><img alt="#b37276" src="https://raw.githubusercontent.com/Yur1Ca/Yur1Ca/main/img/b37276.png" width="25" height="20" /><img alt="#e5b2b3" src="https://raw.githubusercontent.com/Yur1Ca/Yur1Ca/main/img/e5b2b3.png" width="25" height="20" /><img alt="#342a28" src="https://raw.githubusercontent.com/Yur1Ca/Yur1Ca/main/img/342a28.png" width="25" height="20" />
 </p>
+</td>
 <td width="65%" valign="middle">
 
 ```
