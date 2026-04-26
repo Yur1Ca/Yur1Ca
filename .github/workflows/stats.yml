@@ -2,6 +2,7 @@ name: 'build-test'
 on:
   schedule:
     - cron: '0 */12 * * *' # every 12 hours
+  workflow_dispatch: # Allow manual triggering
   push:
     branches:
       - main
