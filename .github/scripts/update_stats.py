@@ -71,23 +71,46 @@ def fetch_user_created_at(client: GitHubGraphQLClient, login: str) -> datetime:
     return datetime.fromisoformat(created_at.replace("Z", "+00:00"))
 
 
-def fetch_commit_total(client: GitHubGraphQLClient, login: str) -> int:
-    """Sum commit contributions across the account lifetime."""
+def fetch_commit_and_contribution_totals(client: GitHubGraphQLClient, login: str) -> tuple[int, int]:
+    """Sum commit and contributions across the account lifetime."""
+    # First, try to get total commits using the Search API (includes forks, organizations, and private repos if token allows)
+    import urllib.request
+    import json
+    
+    total_commits = 0
+    url = f"https://api.github.com/search/commits?q=author:{login}"
+    req = urllib.request.Request(
+        url,
+        headers={
+            "Authorization": f"Bearer {client.token}",
+            "Accept": "application/vnd.github.cloak-preview+json",
+            "User-Agent": "profile-readme-generator",
+        }
+    )
+    try:
+        with urllib.request.urlopen(req) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
+            total_commits = data.get("total_count", 0)
+    except Exception as e:
+        print(f"Search API failed ({e}), falling back to GraphQL for commits.")
+
     created_at = fetch_user_created_at(client, login)
     now = datetime.now(timezone.utc)
-    total_commits = 0
+    total_contributions = 0
 
     contributions_query = """
     query($login: String!, $from: DateTime!, $to: DateTime!) {
       user(login: $login) {
         contributionsCollection(from: $from, to: $to) {
           totalCommitContributions
+          restrictedContributionsCount
         }
       }
     }
     """
 
     period_start = created_at
+    fallback_commits = 0
     while period_start < now:
         period_end = datetime(period_start.year + 1, 1, 1, tzinfo=timezone.utc)
         if period_end > now:
@@ -100,15 +123,20 @@ def fetch_commit_total(client: GitHubGraphQLClient, login: str) -> int:
         }
         data = client.execute(contributions_query, variables)
         collection = data["user"]["contributionsCollection"]
-        total_commits += collection["totalCommitContributions"]
+        total_contributions += collection["totalCommitContributions"]
+        total_contributions += collection.get("restrictedContributionsCount", 0)
+        fallback_commits += collection["totalCommitContributions"]
 
         period_start = period_end
 
-    return total_commits
+    if total_commits == 0 and fallback_commits > 0:
+        total_commits = fallback_commits
+
+    return total_commits, total_contributions
 
 
 def fetch_total_stars(client: GitHubGraphQLClient, login: str) -> int:
-    """Sum the stars across all non-fork repositories owned by the user."""
+    """Sum the stars across all repositories (including forks) owned by the user."""
     stars_query = """
     query($login: String!, $cursor: String) {
       user(login: $login) {
@@ -116,7 +144,6 @@ def fetch_total_stars(client: GitHubGraphQLClient, login: str) -> int:
           first: 100,
           after: $cursor,
           ownerAffiliations: OWNER,
-          isFork: false,
           orderBy: {field: UPDATED_AT, direction: DESC}
         ) {
           nodes {
@@ -177,14 +204,15 @@ def main() -> None:
     client = GitHubGraphQLClient(token)
     print(f"Fetching stats for {args.login} …")
     stars = fetch_total_stars(client, args.login)
-    commits = fetch_commit_total(client, args.login)
+    commits, contributions = fetch_commit_and_contribution_totals(client, args.login)
     print(f"Total stars: {stars}")
     print(f"Total commits: {commits}")
+    print(f"Total contributions: {contributions}")
 
     template_path = Path(args.template)
     readme_path = Path(args.readme)
     template_text = template_path.read_text(encoding="utf-8")
-    rendered = render_template(template_text, {"STARS": stars, "COMMITS": commits})
+    rendered = render_template(template_text, {"STARS": stars, "COMMITS": commits, "CONTRIBUTIONS": contributions})
     readme_path.write_text(rendered, encoding="utf-8")
     print(f"Updated {readme_path} from {template_path} with latest stats.")
 
