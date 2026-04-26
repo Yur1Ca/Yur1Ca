@@ -72,31 +72,11 @@ def fetch_user_created_at(client: GitHubGraphQLClient, login: str) -> datetime:
 
 
 def fetch_commit_and_contribution_totals(client: GitHubGraphQLClient, login: str) -> tuple[int, int]:
-    """Sum commit and contributions across the account lifetime."""
-    # First, try to get total commits using the Search API (includes forks, organizations, and private repos if token allows)
-    import urllib.request
-    import json
-    
-    total_commits = 0
-    url = f"https://api.github.com/search/commits?q=author:{login}"
-    req = urllib.request.Request(
-        url,
-        headers={
-            "Authorization": f"Bearer {client.token}",
-            "Accept": "application/vnd.github.cloak-preview+json",
-            "User-Agent": "profile-readme-generator",
-        }
-    )
-    try:
-        with urllib.request.urlopen(req) as resp:
-            data = json.loads(resp.read().decode("utf-8"))
-            total_commits = data.get("total_count", 0)
-    except Exception as e:
-        print(f"Search API failed ({e}), falling back to GraphQL for commits.")
-
+    """Sum commit and other contributions (PRs/Issues) across the account lifetime using GraphQL."""
     created_at = fetch_user_created_at(client, login)
     now = datetime.now(timezone.utc)
-    total_contributions = 0
+    total_commits = 0
+    prs_and_issues = 0
 
     contributions_query = """
     query($login: String!, $from: DateTime!, $to: DateTime!) {
@@ -104,13 +84,15 @@ def fetch_commit_and_contribution_totals(client: GitHubGraphQLClient, login: str
         contributionsCollection(from: $from, to: $to) {
           totalCommitContributions
           restrictedContributionsCount
+          totalPullRequestContributions
+          totalIssueContributions
+          totalPullRequestReviewContributions
         }
       }
     }
     """
 
     period_start = created_at
-    fallback_commits = 0
     while period_start < now:
         period_end = datetime(period_start.year + 1, 1, 1, tzinfo=timezone.utc)
         if period_end > now:
@@ -123,16 +105,17 @@ def fetch_commit_and_contribution_totals(client: GitHubGraphQLClient, login: str
         }
         data = client.execute(contributions_query, variables)
         collection = data["user"]["contributionsCollection"]
-        total_contributions += collection["totalCommitContributions"]
-        total_contributions += collection.get("restrictedContributionsCount", 0)
-        fallback_commits += collection["totalCommitContributions"]
+        
+        total_commits += collection.get("totalCommitContributions", 0)
+        total_commits += collection.get("restrictedContributionsCount", 0)
+        
+        prs_and_issues += collection.get("totalPullRequestContributions", 0)
+        prs_and_issues += collection.get("totalIssueContributions", 0)
+        prs_and_issues += collection.get("totalPullRequestReviewContributions", 0)
 
         period_start = period_end
 
-    if total_commits == 0 and fallback_commits > 0:
-        total_commits = fallback_commits
-
-    return total_commits, total_contributions
+    return total_commits, prs_and_issues
 
 
 def fetch_total_stars(client: GitHubGraphQLClient, login: str) -> int:
