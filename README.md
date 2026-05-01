@@ -19,8 +19,9 @@ Yur1Ca@github:~$ ./welcome.sh
 <img src="padoru.png" alt="Unfortunately I didn't find the author of the pic, feel to open a pull request if found" width="300" />
 <br>
 <p align="center">
-<img alt="#91bdba" src="https://raw.githubusercontent.com/TryKatChup/TryKatChup/main/img/91bdba.png" width="25" height="20" /><img alt="#f9f8f0" src="https://raw.githubusercontent.com/TryKatChup/TryKatChup/main/img/f9f8f0.png" width="25" height="20" /><img alt="#efa9bc" src="https://raw.githubusercontent.com/TryKatChup/TryKatChup/main/img/efa9bc.png" width="25" height="20" /><img alt="#806f85" src="https://raw.githubusercontent.com/TryKatChup/TryKatChup/main/img/806f85.png" width="25" height="20" /><img alt="#c5edea" src="https://raw.githubusercontent.com/TryKatChup/TryKatChup/main/img/c5edea.png" width="25" height="20" />
+<img alt="#d49a96" src="https://raw.githubusercontent.com/Yur1Ca/Yur1Ca/main/img/d49a96.png" width="25" height="20" /><img alt="#914042" src="https://raw.githubusercontent.com/Yur1Ca/Yur1Ca/main/img/914042.png" width="25" height="20" /><img alt="#b37276" src="https://raw.githubusercontent.com/Yur1Ca/Yur1Ca/main/img/b37276.png" width="25" height="20" /><img alt="#e5b2b3" src="https://raw.githubusercontent.com/Yur1Ca/Yur1Ca/main/img/e5b2b3.png" width="25" height="20" /><img alt="#342a28" src="https://raw.githubusercontent.com/Yur1Ca/Yur1Ca/main/img/342a28.png" width="25" height="20" />
 </p>
+</td>
 <td width="65%" valign="middle">
 
 ```
@@ -36,7 +37,7 @@ Yur1Ca@github
 🎯 Pursuing a life that blends technical curiosity with graceful living
 💻 Total commits: 357
 🤝 PRs & Issues: 1
-⭐ Total stars gained: 6
+⭐ Total stars gained: 8
 ```
 
 </td>
