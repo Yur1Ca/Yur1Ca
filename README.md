@@ -36,8 +36,8 @@ Yur1Ca@github
 🎹 Big fan of piano, ONE OK ROCK, and catchy pop tunes
 🎯 Pursuing a life that blends technical curiosity with graceful living
 💻 Total commits: 394
-🤝 PRs & Issues: 3
-⭐ Total stars gained: 101
+🤝 PRs & Issues: 4
+⭐ Total stars gained: 102
 ```
 
 </td>
